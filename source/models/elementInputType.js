@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const validator = require('validator');
 
-const courseComponentInputType = {
+const elementInputType = {
   name: {
     type: String,
     unique: true,
@@ -16,7 +16,7 @@ const courseComponentInputType = {
     trim: true,
     maxlength: 500,
   },
-  courseComponentInputTypeKey: {
+  elementInputTypeKey: {
     type: String,
     unique: true,
     required: true,
@@ -35,4 +35,4 @@ const courseComponentInputType = {
   },
 };
 
-module.exports = { courseComponentInputType };
+module.exports = { elementInputType };

@@ -41,12 +41,12 @@ const course = {
     required: false,
     default: -1,
   },
-  courseComponents: [{
-    courseComponentType: {
+  elements: [{
+    elementType: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'CourseComponentType',
+      ref: 'ElementType',
     },
-    courseComponentTypeOptions: {
+    elementTypeOptions: {
       type: mongoose.Schema.Types.Mixed,
     },
   }],

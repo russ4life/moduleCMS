@@ -12,8 +12,9 @@ const auth = require('../middleware/auth');
 // } = require('../emails/account');
 
 router.post('/', async (req, res) => {
-  const user = new User(req.body);
   try {
+    const { body } = req;
+    const user = new User(body);
     await user.save();
     // sendWelcomeEmail(user.email, user.name);
     const token = await user.generateAuthToken();
@@ -88,10 +89,10 @@ router.patch('/me', auth, async (req, res) => {
   } = req;
   const updates = Object.keys(body);
   const allowedUpdates = [
-    'firstName',
-    'middleName',
-    'lastName',
-    'userName',
+    'firstname',
+    'middlename',
+    'lastname',
+    'username',
     'email',
     'password',
     'language',

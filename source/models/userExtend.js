@@ -77,6 +77,15 @@ const userExtend = () => {
       }
       return user;
     },
+    checkUniqueValue: async (User, key, value) => {
+      const check = {};
+      check[key] = value;
+      const find = await User.findOne({
+        ...check,
+      });
+      const unique = (!find);
+      return unique;
+    },
   };
 
   const callbacks = {

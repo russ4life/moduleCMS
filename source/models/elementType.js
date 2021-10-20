@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const validator = require('validator');
 
-const courseComponentType = {
+const elementType = {
   title: {
     type: String,
     unique: true,
@@ -16,7 +16,7 @@ const courseComponentType = {
     trim: true,
     maxlength: 500,
   },
-  courseComponentTypeKey: {
+  elementTypeKey: {
     type: String,
     unique: true,
     required: true,
@@ -44,7 +44,7 @@ const courseComponentType = {
     type: Boolean,
     required: true,
   },
-  courseComponentGroups: [{
+  elementGroups: [{
     name: {
       type: String,
       trim: true,
@@ -58,7 +58,7 @@ const courseComponentType = {
       trim: true,
       maxlength: 500,
     },
-    courseComponentInputs: [{
+    elementInputs: [{
       label: {
         type: String,
         trim: true,
@@ -98,15 +98,15 @@ const courseComponentType = {
           type: Buffer,
         },
       },
-      courseComponentInputType: {
+      elementInputType: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'CourseComponentInputType',
+        ref: 'ElementInputType',
       },
-      courseComponentInputTypeOptions: {
+      elementInputTypeOptions: {
         type: mongoose.Schema.Types.Mixed,
       },
     }],
   }],
 };
 
-module.exports = { courseComponentType };
+module.exports = { elementType };

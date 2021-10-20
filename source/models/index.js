@@ -3,8 +3,8 @@ const { buildModels } = require('./helpers/buildModels');
 const { language } = require('./language');
 const { layout } = require('./layout');
 const { course } = require('./course');
-const { courseComponentInputType } = require('./courseComponentInputType');
-const { courseComponentType } = require('./courseComponentType');
+const { elementInputType } = require('./elementInputType');
+const { elementType } = require('./elementType');
 const { userSchema, userExtend } = require('./user');
 
 const loadModels = [
@@ -21,12 +21,12 @@ const loadModels = [
     modelsDefault: course,
   },
   {
-    modelsName: 'CourseComponentInputType',
-    modelsDefault: courseComponentInputType,
+    modelsName: 'ElementInputType',
+    modelsDefault: elementInputType,
   },
   {
-    modelsName: 'CourseComponentType',
-    modelsDefault: courseComponentType,
+    modelsName: 'ElementType',
+    modelsDefault: elementType,
   },
   {
     modelsName: 'User',

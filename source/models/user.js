@@ -6,27 +6,32 @@ const validator = require('validator');
 const { userExtend } = require('./userExtend');
 
 const userSchema = {
-  firstName: {
+  firstname: {
     type: String,
     required: true,
     trim: true,
   },
-  middleName: {
+  middlename: {
     type: String,
     required: false,
     trim: true,
   },
-  lastName: {
+  lastname: {
     type: String,
     required: true,
     trim: true,
   },
-  userName: {
+  username: {
     type: String,
     unique: true,
     required: true,
     trim: true,
     lowercase: true,
+    validate(value) {
+      if (!validator.isAlphanumeric(value)) {
+        throw new Error('Username is invalid');
+      }
+    },
   },
   email: {
     type: String,
