@@ -3,15 +3,18 @@ const { buildModel } = require('./buildModel');
 const buildModels = ({ loadModels = [] }) => {
   const models = {};
   const schemas = {};
+  const defaults = {};
   loadModels.forEach((loadModel) => {
     const { modelsName } = loadModel;
-    const { Model, schema } = buildModel({ ...loadModel });
+    const { Model, Schema, schemaDefaults } = buildModel({ ...loadModel });
     models[modelsName] = Model;
-    schemas[modelsName] = schema;
+    schemas[`${modelsName}Schema`] = Schema;
+    defaults[`${modelsName}SchemaDefaults`] = schemaDefaults;
   });
   return {
     models,
     schemas,
+    defaults,
   };
 };
 

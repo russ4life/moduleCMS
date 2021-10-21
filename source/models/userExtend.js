@@ -58,6 +58,7 @@ const userExtend = () => {
         token,
         issue,
       });
+      user.updatedUser = user._id;
       await user.save();
       return token;
     },
@@ -112,12 +113,20 @@ const userExtend = () => {
     },
   };
 
+  const archiveOptions = {
+    separate: {
+      tokens: true,
+      avatar: true,
+    },
+  };
+
   return {
     virtual,
     methods,
     statics,
     pre,
     schemaDefaults,
+    archiveOptions,
   };
 };
 

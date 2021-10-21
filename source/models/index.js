@@ -35,9 +35,10 @@ const loadModels = [
   },
 ];
 
-const { models, schemas } = buildModels({ loadModels });
+const { models, schemas, defaults } = buildModels({ loadModels });
 
 module.exports = {
   ...models,
-  schemas,
+  ...schemas,
+  ...defaults,
 };
